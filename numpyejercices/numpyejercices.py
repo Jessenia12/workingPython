@@ -86,3 +86,47 @@ print(arreglo)
 filtro = arreglo[(arreglo >= 40) & (arreglo <= 60)]
 print("\nValores filtrados (entre 40 y 60):")
 print(filtro)
+
+
+x=np.array([[3,4],[3,4]])
+y=np.array([[10,20],[30,40]])
+print(x)
+print(y)
+print(x.shape)
+print(y.shape)
+
+
+print(x+y)
+print(np.add(x,y))
+
+print(x*y)
+
+
+print(np.dot(x,y))
+
+print('*************************')
+g = np.random.randint(11, 100, size=(3, 4))
+print(g)
+
+print(np.sum(g,axis=0))
+print(np.sum(g,axis=1))
+
+
+
+print(np.sum(g))
+print('*************************')
+x=np.array([[1,2],[3,4]])
+y=np.array([[10,20],[30,40]])
+print(x)
+print(x.T)
+
+horizontal = np.concatenate((x, y), axis=1)
+print("Concatenación horizontal:")
+print(horizontal)
+
+print('*************************')
+vertical = np.concatenate((x, y), axis=0)
+print("Concatenación vertical:")
+print(vertical)
+
+
