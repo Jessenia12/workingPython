@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Estudiante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>➕ Agregar Nuevo Estudiante</h2>
+
+        <!-- Mensaje de éxito -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="success-message" id="successMessage">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <p style="text-align:center; color:#ccc; margin-bottom:30px; font-size:1.2em;">
+            Complete el siguiente formulario para agregar un nuevo estudiante al sistema.
+        </p>
+
+        <form method="POST">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="number" name="edad" placeholder="Edad" required>
+            <input type="text" name="curso" placeholder="Curso">
+            <input type="text" name="carrera" placeholder="Carrera">
+            <input type="text" name="facultad" placeholder="Facultad">
+            <button type="submit">💾 Guardar Estudiante</button>
+        </form>
+
+        <a href="{{ url_for('index') }}" class="back-link">⬅️ Volver a la lista de estudiantes</a>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const msg = document.getElementById('successMessage');
+            if(msg) msg.style.display = 'none';
+        }, 3000);
+    </script>
+</body>
+</html>

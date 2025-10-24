@@ -1,0 +1,45 @@
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: students_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: students_db
+      POSTGRES_HOST: db
+    ports:
+      - "5000:5000"
+
+      
+environment:
+  POSTGRES_USER: flaskuser
+  POSTGRES_PASSWORD: TuPasswordSeguro123
+  POSTGRES_DB: students_db
+  POSTGRES_HOST: db
+  DOCKER_ENV: "1"
+
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://backend:5000/api
+
+volumes:
+  pgdata:

@@ -1,0 +1,4 @@
+cliente.py
+__pycache__/
+*.pyc
+.env

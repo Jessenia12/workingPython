@@ -6,7 +6,7 @@ from colorama import init, Fore, Style
 # Inicializar colorama para colores en consola
 init(autoreset=True)
 
-HOST = '127.0.0.1'
+HOST = '0.0.0.0'  # escuchar en todas las interfaces
 PORT = 5000
 
 def handle_client(conn, addr):

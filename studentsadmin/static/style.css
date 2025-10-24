@@ -1,0 +1,237 @@
+body {
+    background: radial-gradient(circle at center, #000000, #0a0a0a, #101010);
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* 🔹 Sección de Bienvenida (pantalla completa) */
+.bienvenida {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    padding: 0 10%;
+}
+
+.bienvenida h1 {
+    color: #00ff88;
+    text-shadow: 0 0 20px #00ff88, 0 0 40px #00ffaa;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+.mensaje {
+    font-size: 1.5em;
+    color: #ccc;
+    margin-top: 10px;
+    line-height: 1.5;
+    width: 80%;
+}
+
+/* 🔹 Imagen grande futurista */
+.imagen-bienvenida {
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 40px;
+    border-radius: 25px;
+    box-shadow: 0 0 40px #00ffaa;
+    animation: zoomIn 2s ease;
+}
+
+/* 🔹 Botón principal */
+button {
+    background: #00ff88;
+    color: #000;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: 0.4s;
+    box-shadow: 0 0 25px #00ffaa;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: #00ffaa;
+    transform: scale(1.1);
+    box-shadow: 0 0 40px #00ff88;
+}
+
+/* 🔹 Contenedor principal del sistema */
+.container {
+    width: 85%;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 30px #00ff88;
+    transition: 0.3s;
+}
+
+.container:hover {
+    box-shadow: 0 0 45px #00ffaa, 0 0 80px #00ffcc;
+}
+
+/* 🔹 Ocultar/mostrar contenido */
+.oculto {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* 🔹 Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* 🔹 Tabla de datos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #00ffaa;
+}
+
+th {
+    background-color: #00ff88;
+    color: #000;
+}
+
+td {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+/* Formulario Agregar Estudiante */
+.container h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #00ff88;
+    text-shadow: 0 0 15px #00ffaa;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Inputs más visibles */
+.container input[type="text"],
+.container input[type="number"] {
+    width: 80%;
+    max-width: 500px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 2px solid #00ff88;
+    background: rgba(0, 0, 0, 0.6);
+    color: #e0e0e0;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.container input::placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+.container input:focus {
+    border-color: #00ffaa;
+    box-shadow: 0 0 15px #00ffaa;
+    outline: none;
+    transform: scale(1.02);
+}
+
+/* Botón más dinámico */
+.container button {
+    width: 50%;
+    max-width: 300px;
+    padding: 18px 0;
+    font-size: 1.2em;
+    border-radius: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.container button:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 45px #00ff88, 0 0 80px #00ffaa;
+}
+
+/* Link de volver */
+.back-link {
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+    color: #00ff88;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    color: #00ffaa;
+    text-shadow: 0 0 10px #00ffaa;
+}
+/* 🔹 Botón Salir futurista */
+.btn-salir {
+    background: #ff4d4d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 20px #ff6666, 0 0 40px #ff9999;
+    transition: 0.3s;
+}
+
+.btn-salir:hover {
+    background: #ff6666;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff4d4d, 0 0 60px #ff9999;
+}
+.success-message {
+    background-color: #4caf50; /* verde */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

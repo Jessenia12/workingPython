@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Estudiantes ULEAM 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+   <div class="bienvenida" {% if mostrar_tabla %}style="display:none"{% endif %}>
+    <h1>🎓 Bienvenido al Sistema de Gestión de Estudiantes ULEAM 2025</h1>
+    <p class="mensaje">
+        Este sistema te permite registrar, modificar y eliminar estudiantes de forma fácil, rápida y futurista 🚀
+    </p>
+    <img src="https://cdn.pixabay.com/photo/2016/03/09/09/17/student-1245884_1280.jpg" alt="Estudiantes" class="imagen-bienvenida">
+    <button id="continuarBtn">Entrar al Sistema</button>
+</div>
+
+<div id="contenido" class="{% if mostrar_tabla %}visible{% else %}oculto{% endif %}">
+    <!-- Botón Salir arriba a la derecha -->
+    <div style="text-align: right; margin-bottom: 15px;">
+        <form method="POST" action="{{ url_for('salir') }}" style="display:inline;">
+            <button type="submit" class="btn-salir">
+                🚪 Salir
+            </button>
+        </form>
+    </div>
+
+    <h2 style="text-align:center;">📋 Lista de Estudiantes</h2>
+
+    <div class="container">
+        <a href="{{ url_for('agregar') }}"><button>➕ Agregar Estudiante</button></a>
+        <table border="1" width="100%" style="margin-top: 20px;">
+            <tr style="background-color: #00ff88; color: black;">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Curso</th>
+                <th>Carrera</th>
+                <th>Facultad</th>
+                <th>Acciones</th>
+            </tr>
+            {% for e in estudiantes %}
+            <tr>
+                <td>{{ e[0] }}</td>
+                <td>{{ e[1] }}</td>
+                <td>{{ e[2] }}</td>
+                <td>{{ e[3] }}</td>
+                <td>{{ e[4] }}</td>
+                <td>{{ e[5] }}</td>
+                <td>
+                    <a href="{{ url_for('editar', id=e[0]) }}">✏️</a> |
+                    <a href="{{ url_for('eliminar', id=e[0]) }}">🗑️</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Estudiante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Editar Estudiante</h1>
+
+    <!-- Mensaje de éxito -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="success-message" id="successMessage">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <form method="POST">
+            <input type="text" name="nombre" value="{{ estudiante[1] }}" required>
+            <input type="number" name="edad" value="{{ estudiante[2] }}" required>
+            <input type="text" name="curso" value="{{ estudiante[3] }}">
+            <input type="text" name="carrera" value="{{ estudiante[4] }}">
+            <input type="text" name="facultad" value="{{ estudiante[5] }}">
+            <button type="submit">✅ Actualizar</button>
+        </form>
+        <br>
+        <a href="{{ url_for('index') }}">⬅️ Volver</a>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const msg = document.getElementById('successMessage');
+            if(msg) msg.style.display = 'none';
+        }, 3000);
+    </script>
+</body>
+</html>
